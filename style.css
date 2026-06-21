@@ -6,45 +6,121 @@ body {
   padding-bottom: 120px;
 }
 
-/* ヘッダー */
+/* =========================
+   HEADER & HAMBURGER MENU
+========================= */
+
+/* ヘッダー全体のレイアウト（ボタンを左、ロゴを中央に） */
 .header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 15px;
-  padding: 25px 20px 15px;
+  justify-content: center; /* ロゴを中央に寄せる基本設定 */
+  position: relative;
+  padding: 20px;
   background-color: #F7F6F3;
+  min-height: 40px;
+  z-index: 1000;
 }
 
 .logo {
   width: 160px;
 }
 
-/* ナビゲーションメニュー (横並び) */
+/* ハンバーガーボタン（左上に固定配置） */
+.menu-btn {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+  padding: 0;
+}
+
+/* 漢数字の「三」を形作る3本の線 */
+.menu-btn span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-btn span:nth-child(1) { top: 0; }
+.menu-btn span:nth-child(2) { top: 10px; }
+.menu-btn span:nth-child(3) { bottom: 0; }
+
+/* ボタンがアクティブ（×印）になったとき */
+.menu-btn.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* ナビゲーションメニュー（初期状態は左側の画面外に隠す） */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 75%;
+  max-width: 280px;
+  height: 100vh;
+  background-color: rgba(247, 246, 243, 0.98); /* サロンのトーンに合わせた上品な白 */
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05);
+  padding: 100px 30px 30px;
+  transition: left 0.3s ease-in-out;
+  z-index: 1001;
+  box-sizing: border-box;
+}
+
+/* メニュー開いた時（画面内に出現） */
+.nav-menu.active {
+  left: 0;
+}
+
 .nav-menu ul {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  flex-direction: column;
+  gap: 25px;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
+.nav-menu ul li {
+  border-bottom: 1px solid #E5E2DC;
+  padding-bottom: 12px;
+}
+
 .nav-menu a {
   text-decoration: none;
-  color: #777;
-  font-size: 13px;
+  color: #666;
+  font-size: 14px;
   font-weight: bold;
-  letter-spacing: 0.05em;
-  padding: 5px 0;
-  display: inline-block;
+  letter-spacing: 0.08em;
+  display: block;
   transition: color 0.3s;
 }
 
 .nav-menu a:hover,
 .nav-menu a.current {
-  color: #B8AFA2; /* 現在のページ、またはホバー時にテーマカラーにする */
+  color: #B8AFA2;
 }
+
+
+/* =========================
+   共通・コンテンツスタイル
+========================= */
 
 /* ヒーロー */
 .hero {
@@ -62,7 +138,6 @@ body {
   color: #666;
 }
 
-/* セクション共通 */
 section {
   padding: 50px 20px;
   text-align: center;
@@ -73,30 +148,19 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* ABOUT画像 */
-.about-img {
+.about-img, .feature-img {
   width: 100%;
   max-width: 280px;
   border-radius: 12px;
   margin-bottom: 20px;
 }
 
-/* FEATURE画像 */
-.feature-img {
-  width: 100%;
-  max-width: 280px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-}
-
-/* リスト */
 ul {
   list-style: none;
   padding: 0;
   line-height: 2;
 }
 
-/* 下層ページ専用の余白調整 */
 .lower-main {
   min-height: 60vh;
   padding-top: 20px;
@@ -109,9 +173,7 @@ ul {
   margin-bottom: 30px;
 }
 
-/* =========================
-   MENU (施術内容)
-========================= */
+/* MENU (施術内容) */
 .menu-box {
   width: 100%;
   max-width: 550px;
@@ -140,9 +202,7 @@ ul {
   color: #555;
 }
 
-/* =========================
-   PRICE (料金案内)
-========================= */
+/* PRICE (料金案内) */
 .price-table {
   width: 100%;
   max-width: 550px;
@@ -155,8 +215,7 @@ ul {
   border-bottom: 1px solid #E5E2DC;
 }
 
-.price-table th, 
-.price-table td {
+.price-table th, .price-table td {
   padding: 15px 10px;
 }
 
@@ -177,9 +236,7 @@ ul {
   color: #888;
 }
 
-/* =========================
-   QUALIFICATION
-========================= */
+/* QUALIFICATION */
 .qualification-box{
   max-width: 500px;
   margin: 0 auto;
@@ -194,9 +251,7 @@ ul {
   margin-bottom: 15px;
 }
 
-/* =========================
-   ACCESS
-========================= */
+/* ACCESS */
 .access-box{
   max-width: 700px;
   margin: 0 auto;
@@ -224,9 +279,7 @@ ul {
   line-height: 1.9;
 }
 
-/* =========================
-   RESERVE / FOOTER / FIXED BUTTONS
-========================= */
+/* RESERVE / FOOTER / FIXED BUTTONS */
 .reserve-text{
   line-height: 1.8;
   margin-bottom: 30px;
@@ -251,8 +304,7 @@ footer {
   z-index: 999;
 }
 
-.fixed-tel,
-.fixed-line{
+.fixed-tel, .fixed-line {
   display: block;
   text-align: center;
   padding: 14px;
@@ -271,12 +323,10 @@ footer {
   border-radius: 0 0 20px 20px;
 }
 
-/* スムーズスクロール（HOMEからアクセスを押した時用） */
 html {
   scroll-behavior: smooth;
 }
 
-/* スマホ調整 */
 @media (max-width: 768px) {
   .logo {
     width: 140px;
