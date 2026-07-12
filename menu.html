@@ -1,81 +1,359 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>施術内容 | SUGIMOTO LAB’</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <title>施術内容 | SUGIMOTO LAB'</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<header class="header">
-  <button class="menu-btn" id="js-menu-btn" aria-label="メニューを開く">
+  <!-- メニューボタン -->
+  <button
+    class="menu-button"
+    id="menuButton"
+    type="button"
+    aria-label="メニューを開く"
+    aria-controls="sideMenu"
+    aria-expanded="false"
+  >
     <span></span>
     <span></span>
     <span></span>
   </button>
 
-  <a href="index.html"><img src="images/logo.png" class="logo" alt="SUGIMOTO LAB’"></a>
-  
-  <nav class="nav-menu" id="js-nav-menu">
-    <ul>
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="menu.html" class="current">施術内容</a></li>
-      <li><a href="price.html">料金案内</a></li>
-      <li><a href="index.html#access">アクセス</a></li>
-    </ul>
-  </nav>
-</header>
+  <div class="menu-overlay" id="menuOverlay"></div>
 
-<main class="lower-main">
-  <section class="menu">
-    <h2>MENU</h2>
-    <p class="section-lead">当院の施術内容について</p>
-    
-    <div class="menu-box">
-      <h3>総合整体・調整</h3>
-      <p>骨盤や背骨の歪みをやさしく整え、筋肉の緊張をほぐします。肩こりや腰痛の根本改善におすすめです。ボキボキしない、心地よい刺激の施術ですので初めての方もご安心ください。</p>
-      
-      <h3>鍼灸施術</h3>
-      <p>髪の毛よりも細い使い捨ての鍼（はり）やお灸を使用し、ツボを刺激することで自律神経を整え、身体の内側から血行を促進。深い疲れや冷え性、睡眠のお悩みにも効果的です。</p>
+  <!-- サイドメニュー -->
+  <nav class="side-menu" id="sideMenu" aria-hidden="true">
+    <div class="side-menu-inner">
+      <p class="side-menu-title">MENU</p>
+
+      <a href="index.html">ホーム</a>
+      <a href="treatment.html">施術内容</a>
+      <a href="price.html">料金案内</a>
+      <a href="index.html#access">アクセス</a>
+      <a href="あなたのLINEのURL" target="_blank" rel="noopener">
+        LINE予約
+      </a>
     </div>
-  </section>
+  </nav>
 
-  <section class="reserve">
-    <p class="reserve-text">
-      ご予約・お問い合わせは<br>
-      お電話またはLINEよりお気軽にご連絡ください。
-    </p>
-  </section>
-</main>
+  <header class="sub-header">
+    <a href="index.html" class="site-name">
+      SUGIMOTO LAB'
+    </a>
+  </header>
 
-<footer>
-  <p>無理なく、整える。</p>
-  <p>© SUGIMOTO LAB’</p>
-</footer>
-  
-<div class="fixed-buttons">
-  <a href="tel:07094495309" class="fixed-tel">
-    📞 電話で予約
-  </a>
+  <main>
 
-  <a href="https://lin.ee/7CNkwtA" class="fixed-line">
-    LINEで予約
-  </a>
-</div>
+    <section class="page-hero">
+      <p class="page-hero-en">TREATMENT</p>
+      <h1>施術内容</h1>
+      <p>お悩みや身体の状態に合わせて施術を行います</p>
+    </section>
 
-<script>
-  const menuBtn = document.getElementById('js-menu-btn');
-  const navMenu = document.getElementById('js-nav-menu');
+    <section class="treatment-section">
 
-  menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('active');
-    navMenu.classList.toggle('active');
-  });
-</script>
-  
+      <!-- 究極の疲労回復 -->
+      <article class="treatment-card" id="recovery">
+        <div class="treatment-image-wrap">
+          <img
+            src="images/treatment-recovery.png"
+            alt="究極の疲労回復の施術イメージ"
+            class="treatment-image"
+          >
+
+          <span class="treatment-duration">60分</span>
+        </div>
+
+        <div class="treatment-content">
+          <p class="treatment-label">FULL COURSE</p>
+
+          <h2>究極の疲労回復</h2>
+
+          <h3>
+            オーダーメイドマッサージ＋<br>
+            鍼 or お灸治療＋ハイボルト
+          </h3>
+
+          <p class="treatment-description">
+            「どこへ行っても良くならない…」そんな頑固な首・肩こりや腰痛に！
+            当院の技術をすべて詰め込んだフルコースで、
+            痛みの根本から徹底アプローチします。
+          </p>
+
+          <p class="treatment-price">6,980円</p>
+        </div>
+      </article>
+
+      <!-- 骨盤調整＋ハイボルト -->
+      <article class="treatment-card" id="pelvis-highvolt">
+        <div class="treatment-image-wrap">
+          <img
+            src="images/treatment-highvolt.png"
+            alt="骨盤調整とハイボルト電気治療の施術イメージ"
+            class="treatment-image"
+          >
+
+          <span class="treatment-duration">30分</span>
+        </div>
+
+        <div class="treatment-content">
+          <p class="treatment-label">HIGH VOLTAGE</p>
+
+          <h2>骨盤調整＋ハイボルト電気治療</h2>
+
+          <p class="treatment-description">
+            「今すぐこの痛みをどうにかしたい！」という方に。
+            最新機器のハイボルトとマッサージで
+            周囲の緊張をほぐす速攻ケアです。
+          </p>
+
+          <p class="treatment-price">3,980円</p>
+        </div>
+      </article>
+
+      <!-- 骨盤調整＋鍼 or お灸 -->
+      <article class="treatment-card" id="pelvis-acupuncture">
+        <div class="treatment-image-wrap">
+          <img
+            src="images/treatment-acupuncture.png"
+            alt="骨盤調整と鍼またはお灸治療の施術イメージ"
+            class="treatment-image"
+          >
+
+          <span class="treatment-duration">30分</span>
+        </div>
+
+        <div class="treatment-content">
+          <p class="treatment-label">ACUPUNCTURE</p>
+
+          <h2>骨盤調整＋鍼 or お灸治療</h2>
+
+          <p class="treatment-description">
+            手技では届かない深層の筋肉に鍼灸でアプローチ。
+            長時間のデスクワーク疲労や、
+            休んでも取れないだるさをスッキリ解消へ導きます。
+          </p>
+
+          <p class="treatment-price">3,980円</p>
+        </div>
+      </article>
+
+      <!-- 痛みの根本改善 -->
+      <article class="treatment-card" id="root-pelvis">
+        <div class="treatment-image-wrap">
+          <img
+            src="images/treatment-root-pelvis.png"
+            alt="痛みの根本改善を目的とした骨盤調整の施術イメージ"
+            class="treatment-image"
+          >
+
+          <span class="treatment-duration">30分</span>
+        </div>
+
+        <div class="treatment-content">
+          <p class="treatment-label">PELVIS</p>
+
+          <h2>痛みの根本改善○骨盤調整</h2>
+
+          <p class="treatment-description">
+            「マッサージしてもすぐ戻る」
+            「急にピキッと痛んだ」そんなツラい腰痛に！
+            痛みの根本原因である骨格の歪みをしっかり整えます。
+          </p>
+
+          <p class="treatment-price">3,980円</p>
+        </div>
+      </article>
+
+      <!-- 美容鍼 -->
+      <article class="treatment-card" id="beauty-acupuncture">
+        <div class="treatment-image-wrap">
+          <img
+            src="images/treatment-beauty-acupuncture.png"
+            alt="美容鍼の施術イメージ"
+            class="treatment-image"
+          >
+
+          <span class="treatment-duration">30分</span>
+        </div>
+
+        <div class="treatment-content">
+          <p class="treatment-label">BEAUTY</p>
+
+          <h2>
+            【全員／お顔のたるみ・むくみをキュッと引き締め】
+            美容鍼
+          </h2>
+
+          <p class="treatment-description">
+            顔のむくみ、首のたるみ・しわ、肌荒れ、
+            眼精疲労が気になる方に。
+            お顔のツボを刺激し、血流を促進。
+            内側から輝くようなハリとリフトアップをご体感ください！
+          </p>
+
+          <p class="treatment-price">5,500円</p>
+        </div>
+      </article>
+
+      <!-- オーダーメイド＋ハイボルト -->
+      <article class="treatment-card" id="order-highvolt">
+        <div class="treatment-image-wrap">
+          <img
+            src="images/treatment-order-highvolt.png"
+            alt="オーダーメイドマッサージとハイボルト治療の施術イメージ"
+            class="treatment-image"
+          >
+
+          <span class="treatment-duration">40分</span>
+        </div>
+
+        <div class="treatment-content">
+          <p class="treatment-label">ORDER MADE</p>
+
+          <h2>
+            オーダーメイドマッサージ＋ハイボルト治療
+          </h2>
+
+          <p class="treatment-description">
+            「今すぐこの痛みをどうにかしたい！」という方に。
+            最新機器のハイボルトとマッサージで
+            周囲の緊張をほぐす速攻ケアです。
+          </p>
+
+          <p class="treatment-price">3,980円</p>
+        </div>
+      </article>
+
+      <!-- オーダーメイド＋鍼 or お灸 -->
+      <article class="treatment-card" id="order-acupuncture">
+        <div class="treatment-image-wrap">
+          <img
+            src="images/treatment-order-acupuncture.png"
+            alt="オーダーメイドマッサージと鍼またはお灸治療の施術イメージ"
+            class="treatment-image"
+          >
+
+          <span class="treatment-duration">40分</span>
+        </div>
+
+        <div class="treatment-content">
+          <p class="treatment-label">ORDER MADE</p>
+
+          <h2>
+            オーダーメイドマッサージ＋鍼 or お灸治療
+          </h2>
+
+          <p class="treatment-description">
+            手技では届かない深層の筋肉に鍼灸でアプローチ。
+            長時間のデスクワーク疲労や、
+            休んでも取れないだるさをスッキリ解消へ導きます。
+          </p>
+
+          <p class="treatment-price">3,980円</p>
+        </div>
+      </article>
+
+      <!-- W資格オーダーメイド -->
+      <article class="treatment-card" id="double-license">
+        <div class="treatment-image-wrap">
+          <img
+            src="images/treatment-order-double-license.png"
+            alt="鍼灸と柔整の資格を生かしたオーダーメイドマッサージの施術イメージ"
+            class="treatment-image"
+          >
+
+          <span class="treatment-duration">40分</span>
+        </div>
+
+        <div class="treatment-content">
+          <p class="treatment-label">DOUBLE LICENSE</p>
+
+          <h2>
+            鍼灸×柔整のW資格<br>
+            ◆オーダーメイドマッサージ
+          </h2>
+
+          <p class="treatment-description">
+            ツボ＆骨格を知り尽くした
+            「鍼灸×柔道整復師」のW資格者が、
+            デスクワークによる深層のコリを徹底ケア！
+            首肩のガチガチや自律神経の乱れを、
+            本格マッサージで根本から整えます。
+          </p>
+
+          <p class="treatment-price">3,980円</p>
+        </div>
+      </article>
+
+      <!-- 延長マッサージ -->
+      <article class="treatment-option">
+        <div class="treatment-option-time">
+          10分
+        </div>
+
+        <div>
+          <h2>延長マッサージ</h2>
+
+          <p>
+            もう少し施術を受けたい方へ。<br>
+            延長マッサージも承っております。
+          </p>
+
+          <p class="treatment-price">500円</p>
+        </div>
+      </article>
+
+      <!-- 炭酸ドライヘッド -->
+      <article class="treatment-option">
+        <div class="treatment-option-time">
+          10分
+        </div>
+
+        <div>
+          <h2>炭酸ドライヘッドマッサージ</h2>
+
+          <p>
+            パチパチと弾ける炭酸が頭皮を心地よく刺激し、
+            その後のヘッドマッサージで
+            頭皮の緊張を和らげます。
+          </p>
+
+          <p class="treatment-price">1,000円</p>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="page-link-section">
+      <p>施術時間と料金をまとめて確認できます</p>
+
+      <a href="price.html" class="page-link-button">
+        料金案内を見る
+      </a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>無理なく、整える。</p>
+    <p>© SUGIMOTO LAB’</p>
+  </footer>
+
+  <script src="js/menu.js"></script>
 </body>
 </html>
