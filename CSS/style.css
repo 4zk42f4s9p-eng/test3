@@ -332,3 +332,214 @@ html {
     width: 140px;
   }
 }
+/* ========================================
+   HOME 案内画像切り替え
+======================================== */
+
+.home-gallery {
+  width: min(920px, calc(100% - 40px));
+  margin: 20px auto 80px;
+  padding: 45px 30px;
+
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(60, 45, 40, 0.08);
+
+  text-align: center;
+}
+
+.home-gallery-title {
+  margin-bottom: 25px;
+}
+
+.home-gallery-en {
+  margin: 0 0 8px;
+  color: #9c786c;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+}
+
+.home-gallery-title h2 {
+  margin: 0;
+  color: #493e3a;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.home-gallery-display {
+  width: 100%;
+  overflow: hidden;
+
+  background: #f1eeea;
+  border-radius: 14px;
+}
+
+.home-gallery-image {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.home-gallery-image.changing {
+  opacity: 0;
+}
+
+.home-gallery-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+.home-gallery-button {
+  min-height: 48px;
+  padding: 10px 12px;
+
+  background: #f2efeb;
+  border: 1px solid rgba(100, 80, 72, 0.2);
+  border-radius: 999px;
+
+  color: #554a46;
+  font-family: inherit;
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.2s;
+}
+
+.home-gallery-button:hover {
+  transform: translateY(-2px);
+}
+
+.home-gallery-button.active {
+  background: #8d7066;
+  border-color: #8d7066;
+  color: #fff;
+}
+
+
+/* ========================================
+   HOME 資格証
+======================================== */
+
+.qualification-content {
+  width: min(850px, calc(100% - 40px));
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(230px, 38%) minmax(0, 1fr);
+  gap: 45px;
+  align-items: center;
+}
+
+.qualification-image-wrap {
+  width: 100%;
+}
+
+.qualification-image {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(60, 45, 40, 0.1);
+}
+
+.qualification-box {
+  text-align: left;
+}
+
+.qualification-title {
+  margin: 0 0 20px;
+  font-size: 23px;
+  font-weight: bold;
+  line-height: 1.7;
+}
+
+.qualification-box ul {
+  margin: 0 0 25px;
+  padding-left: 1.5em;
+}
+
+.qualification-box li {
+  margin-bottom: 10px;
+  line-height: 1.8;
+}
+
+.qualification-text {
+  margin: 0;
+  color: #625955;
+  font-size: 15px;
+  line-height: 2;
+}
+
+
+/* スマホ */
+
+@media (max-width: 700px) {
+
+  .home-gallery {
+    width: calc(100% - 24px);
+    margin: 15px auto 60px;
+    padding: 32px 14px 24px;
+  }
+
+  .home-gallery-title h2 {
+    font-size: 20px;
+  }
+
+  .home-gallery-buttons {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    margin-top: 15px;
+  }
+
+  .home-gallery-button {
+    min-height: 44px;
+    font-size: 13px;
+  }
+
+  .qualification-content {
+    width: calc(100% - 32px);
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .qualification-image-wrap {
+    width: min(75%, 320px);
+    margin: 0 auto;
+  }
+
+  .qualification-box {
+    text-align: center;
+  }
+
+  .qualification-title {
+    font-size: 20px;
+  }
+
+  .qualification-box ul {
+    display: inline-block;
+    text-align: left;
+  }
+
+  .qualification-text {
+    text-align: left;
+    font-size: 14px;
+  }
+
+}
